@@ -234,4 +234,18 @@
         transform: translateY(-10px);
     }
     to {
-        opacity:
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+    .auth-box {
+        padding: 30px 20px;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.8rem;
+    }
+}
