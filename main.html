@@ -3,28 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Professional Website</title>
+    <title>Dashboard - Your Professional Website</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container">
             <div class="logo">
-                <a href="index.html">YourBrand</a>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="YourBrand Logo">
+                </a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li class="user-dropdown">
+                        <a href="#" class="user-menu-trigger">
+                            <i class="fas fa-user-circle"></i> <span class="user-email">user@example.com</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="user-dropdown-menu">
+                            <a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <div class="hamburger">
@@ -35,133 +53,188 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
         <div class="container">
-            <div class="hero-content">
-                <h1>Innovative Solutions for Tomorrow's Challenges</h1>
-                <p>We create cutting-edge digital experiences that drive growth and transformation.</p>
-                <a href="#contact" class="btn">Get Started</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>We specialize in delivering exceptional solutions tailored to your needs</p>
-            </div>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="icon">
-                        <i class="fas fa-laptop-code"></i>
+            <div class="dashboard-container">
+                <!-- Sidebar -->
+                <div class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <img src="images/avatar-placeholder.jpg" alt="User Avatar">
+                        </div>
+                        <div class="user-info">
+                            <h3 class="user-name">Welcome back!</h3>
+                            <p class="user-email">user@example.com</p>
+                        </div>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Custom websites built with the latest technologies to drive your business forward.</p>
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                            <li><a href="projects.html"><i class="fas fa-project-diagram"></i> My Projects</a></li>
+                            <li><a href="messages.html"><i class="fas fa-envelope"></i> Messages <span class="badge">3</span></a></li>
+                            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </nav>
                 </div>
                 
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile Apps</h3>
-                    <p>Intuitive and powerful mobile applications for iOS and Android platforms.</p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Strategic marketing campaigns to increase your online presence and drive conversions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured Projects</h2>
-                <p>Some of our recent work that showcases our capabilities</p>
-            </div>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="images/project1.jpg" alt="Project 1">
-                    </div>
-                    <div class="project-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A fully responsive online store with integrated payment systems.</p>
-                        <a href="#" class="btn-sm">View Details</a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="images/project2.jpg" alt="Project 2">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio Website</h3>
-                        <p>A creative portfolio for a digital artist showcasing their work.</p>
-                        <a href="#" class="btn-sm">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Have a project in mind? Let's discuss how we can help.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                <!-- Main Content -->
+                <div class="dashboard-main">
+                    <div class="dashboard-header">
+                        <h1>Dashboard</h1>
+                        <div class="header-actions">
+                            <div class="date-picker">
+                                <i class="fas fa-calendar-alt"></i>
+                                <select id="date-range">
+                                    <option value="today">Today</option>
+                                    <option value="week" selected>This Week</option>
+                                    <option value="month">This Month</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                            <button class="btn-sm" id="refresh-data">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>123 Business Avenue, New York, NY</p>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>info@yourbrand.com</p>
+                    
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>1,254</h3>
+                                <p>Profile Views</p>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 12.5%
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>8</h3>
+                                <p>Active Projects</p>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 2 new
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon green">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>68%</h3>
+                                <p>Tasks Completed</p>
+                                <div class="stat-change negative">
+                                    <i class="fas fa-arrow-down"></i> 4.2%
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>24</h3>
+                                <p>New Messages</p>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 8 new
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <p>+1 (555) 123-4567</p>
+                    
+                    <!-- Charts Row -->
+                    <div class="charts-row">
+                        <div class="chart-card hover-shadow">
+                            <div class="chart-header">
+                                <h3>Activity Overview</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="activityChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-card hover-shadow">
+                            <div class="chart-header">
+                                <h3>Project Status</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="projectChart"></canvas>
+                            </div>
+                        </div>
                     </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    
+                    <!-- Recent Activity -->
+                    <div class="recent-activity-card hover-shadow">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                            <button class="btn-sm">View All</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon green">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>Project Completed</h4>
+                                        <p>E-commerce Website Redesign has been marked as completed.</p>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon blue">
+                                        <i class="fas fa-comment"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>New Comment</h4>
+                                        <p>John Doe commented on your portfolio project.</p>
+                                        <span class="activity-time">Yesterday</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon purple">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>New Document</h4>
+                                        <p>Requirements document for Mobile App project has been uploaded.</p>
+                                        <span class="activity-time">2 days ago</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon orange">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>Team Member Added</h4>
+                                        <p>Sarah Johnson has been added to the Web Development team.</p>
+                                        <span class="activity-time">4 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -187,5 +260,7 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
