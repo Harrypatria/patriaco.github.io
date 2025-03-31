@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Your Professional Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="YourBrand Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="user-dropdown">
+                        <a href="#" class="user-menu-trigger">
+                            <i class="fas fa-user-circle"></i> <span class="user-email">user@example.com</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="user-dropdown-menu">
+                            <a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-container">
+                <!-- Sidebar -->
+                <div class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <img src="images/avatar-placeholder.jpg" alt="User Avatar">
+                        </div>
+                        <div class="user-info">
+                            <h3 class="user-name">Welcome back!</h3>
+                            <p class="user-email">user@example.com</p>
+                        </div>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                            <li><a href="projects.html"><i class="fas fa-project-diagram"></i> My Projects</a></li>
+                            <li><a href="messages.html"><i class="fas fa-envelope"></i> Messages <span class="badge">3</span></a></li>
+                            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="dashboard-main">
+                    <div class="dashboard-header">
+                        <h1>Dashboard</h1>
+                        <div class="header-actions">
+                            <div class="date-picker">
+                                <i class="fas fa-calendar-alt"></i>
+                                <select id="date-range">
+                                    <option value="today">Today</option>
+                                    <option value="week" selected>This Week</option>
+                                    <option value="month">This Month</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                            <button class="btn-sm" id="refresh-data">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>1,254</h3>
+                                <p>Profile Views</p>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 12.5%
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>8</h3>
+                                <p>Active Projects</p>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 2 new
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon green">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>68%</h3>
+                                <p>Tasks Completed</p>
+                                <div class="stat-change negative">
+                                    <i class="fas fa-arrow-down"></i> 4.2%
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card hover-shadow">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>24</h3>
+                                <p>New Messages</p>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 8 new
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Charts Row -->
+                    <div class="charts-row">
+                        <div class="chart-card hover-shadow">
+                            <div class="chart-header">
+                                <h3>Activity Overview</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="activityChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-card hover-shadow">
+                            <div class="chart-header">
+                                <h3>Project Status</h3>
+                                <div class="chart-actions">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="projectChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="recent-activity-card hover-shadow">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                            <button class="btn-sm">View All</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon green">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>Project Completed</h4>
+                                        <p>E-commerce Website Redesign has been marked as completed.</p>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon blue">
+                                        <i class="fas fa-comment"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>New Comment</h4>
+                                        <p>John Doe commented on your portfolio project.</p>
+                                        <span class="activity-time">Yesterday</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon purple">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>New Document</h4>
+                                        <p>Requirements document for Mobile App project has been uploaded.</p>
+                                        <span class="activity-time">2 days ago</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon orange">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h4>Team Member Added</h4>
+                                        <p>Sarah Johnson has been added to the Web Development team.</p>
+                                        <span class="activity-time">4 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2025 YourBrand. All Rights Reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
